@@ -1,0 +1,11 @@
+arquia-payment-gateway
+======================
+
+This is a python library to interact with the Arquia payment gateway.
+
+Requirements
+============
+
+ * Python >= 2.6
+ * PyDES
+
