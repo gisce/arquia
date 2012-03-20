@@ -9,6 +9,7 @@
 """
 
 import base64
+import hashlib
 
 from datetime import datetime
 from urllib import quote
@@ -75,9 +76,10 @@ class ArquiaPGwClient(object):
         id_op += datetime.now().strftime('%Y%m%d') # [4 - 11]
         id_op += self.ID_OPERACION.zfill(8) # [12 - 19]
         id_op = self.ID_OPERACION
-        # id_op = base64.b64encode(id_op)
-        deskey = pyDes.des(self.password, pyDes.ECB, padmode=pyDes.PAD_PKCS5)
-        id_op_crypt = deskey.encrypt(id_op)
+        ckey = hashlib.md5(self.password).digest()
+        trides = pyDes.triple_des(ckey, pyDes.ECB, padmode=pyDes.PAD_PKCS5)
+        id_op_crypt = trides.encrypt(id_op)
+        id_op_crypt = base64.b64encode(id_op_crypt)
         res = {}
         for key in DATA:
             value = getattr(self, key, None)
