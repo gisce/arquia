@@ -40,7 +40,7 @@ class ArquiaPGwClient(object):
 
     def __init__(self, userid, password, config):
         """Constructor.
-        
+
         :param userid: the Arquia provided username
         :param password: the Arquia provided password
         :param config: a dict that should contain the following keys:
@@ -69,12 +69,11 @@ class ArquiaPGwClient(object):
         if not self.CONF:
             self.CONF = '1100'
 
-
     def get_payment_form_data(self):
         """Returns the data needed to be submitted to Arquia."""
-        id_op = str(self.ID_USU)[:4].zfill(4) # [0 - 3]
-        id_op += datetime.now().strftime('%Y%m%d') # [4 - 11]
-        id_op += self.ID_OPERACION.zfill(8) # [12 - 19]
+        id_op = str(self.ID_USU)[:4].zfill(4)  # [0 - 3]
+        id_op += datetime.now().strftime('%Y%m%d')  # [4 - 11]
+        id_op += self.ID_OPERACION.zfill(8)  # [12 - 19]
         id_op = self.ID_OPERACION
         ckey = hashlib.md5(self.password).digest()
         trides = pyDes.triple_des(ckey, pyDes.ECB, padmode=pyDes.PAD_PKCS5)
@@ -94,7 +93,7 @@ class ArquiaPGwTestClient(ArquiaPGwClient):
 
     def __init__(self, userid, password, config, error=False):
         """Test Client constructor.
-        
+
         config values are set up for the test platform.
 
         :param error: force error at the payment gateway
@@ -108,5 +107,3 @@ class ArquiaPGwTestClient(ArquiaPGwClient):
             config.update({'IMPORTE': 0})
         super(ArquiaPGwTestClient, self).__init__('testpasarela', password,
                                                   config)
-
-
