@@ -229,9 +229,9 @@ class ArquiaPGwClient(object):
         self.password = password
         for key, value in config.items():
             if key in DATA:
-                if isinstance(value, basestring):
-                    value = value.encode('utf-8')
-                setattr(self, key, str(value))
+                if not isinstance(value, basestring):
+                    value = str(value)
+                setattr(self, key, value)
             else:
                 raise ValueError("The supplied config key is forbidden.")
         # default values
