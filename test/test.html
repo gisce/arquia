@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <form action="https://www.arquia.es/ArquiaRed/pgateway.aspx" method="POST">
+        <input name="F_MANDATO" value="20140819">
+        <input name="NOMBRE_CLI" value="USUARIO DE PRUEBAS">
+        <input name="ID_USU" value="testpasarela">
+        <input name="CONC" value="Quota">
+        <input name="ID_OPERACION" value="5u6fNcfpvtVpTvJrPQSO5W+kfjQtZUvY">
+        <input name="CONF" value="0100">
+        <input name="DNI_CLI" value="13572468F">
+        <input name="REF" value="12345">
+        <input name="MANDATO" value="d17009d7111f4b368d6f83a144529de1">
+        <input name="IMPORTE" value="100">
+
+        <input type="submit" value="GO">
+    </form>
+    <script lang="text/javascript">
+      document.forms[0]["ID_OPERACION"].value = escape(document.forms[0]["ID_OPERACION"].value)
+    </script>
+</body>
+</html>
