@@ -22,14 +22,13 @@ DATA = [
     'ID_OPERACION',
     'CONF',
     'REF',
+    'MANDATO',
+    'F_MANDATO',
     'DNI_CLI',
     'NOMBRE_CLI',
     'IMPORTE',
-    'CONC1',
-    'CONC2',
-    'CONC3',
-    'CONC4',
-    'CCVERIF',
+    'CONC',
+    'IBANVERIF',
 ]
 
 ENDPOINT_URL = 'https://www.arquia.es/ArquiaRed/pgateway.aspx'
@@ -213,14 +212,13 @@ class ArquiaPGwClient(object):
           ID_OPERACION: unique operation id
           CONF:         payment modes configuration (1100, 0100 or 1000)
           REF:          payment reference
+          MANDATO:      Mandato
+          F_MANDATO:    Date of signing mandato with AAAAMMDD format
           DNI_CLI:      customer's VAT number
           NOMBRE_CLI:   customer's name
           IMPORTE:      payment amount
-          CONC1:        payment's description line 1
-          CONC2:        payment's description line 2
-          CONC3:        payment's description line 3
-          CONC4:        payment's description line 4
-          CCVERIF:      (not required)
+          CONC:         payment's description (limit 140 chars)
+          IBANVERIF:    (not required)
         """
         ArquiaPGwClient.increment()
         for param in DATA:
