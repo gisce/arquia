@@ -3,6 +3,7 @@ python:
     - "2.7"
     - "3.4"
 install:
-    pip install -e .
+    # Fuck external hosted python packages
+    pip install -e . --allow-all-external --allow-unverified pydes
 script:
     python setup.py test
