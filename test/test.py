@@ -45,6 +45,6 @@ class TddArquiaPGw(unittest.TestCase):
         data = arq.get_payment_form_data()
 
         for key, value in data.iteritems():
-            print '<input name="%s" value="%s">' % (key, value)
+            print('<input name="%s" value="%s">' % (key, value))
 
         self.assertTrue(data)
