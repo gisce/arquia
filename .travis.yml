@@ -1,0 +1,8 @@
+language: python
+python:
+    - "2.7"
+install:
+    # Fuck external hosted python packages
+    pip install -e . --allow-all-external --allow-unverified pydes
+script:
+    python setup.py test

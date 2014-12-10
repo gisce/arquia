@@ -44,7 +44,7 @@ class TddArquiaPGw(unittest.TestCase):
         arq = ArquiaPGwClient(ARQUIA_USER, ARQUIA_SECRET, config)
         data = arq.get_payment_form_data()
 
-        for key, value in data.iteritems():
-            print '<input name="%s" value="%s">' % (key, value)
-
         self.assertTrue(data)
+
+if __name__ == '__main__':
+    unittest.main()

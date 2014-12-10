@@ -2,10 +2,8 @@
 # -*- coding: utf-8 -*-
 """Setup file for arquia client.
 """
+from setuptools import find_packages, setup
 
-from distutils.core import setup
-
-PACKAGES = ['arquiapgw', ]
 PACKAGES_DATA = {}
 
 setup(name='arquiapgw',
@@ -19,7 +17,8 @@ setup(name='arquiapgw',
       long_description='''Long description''',
       provides=['arquiapgw'],
       install_requires=['PyDES'],
-      packages=PACKAGES,
+      test_suite="test",
+      packages=find_packages(),
       package_data=PACKAGES_DATA,
       scripts=[],
 )
